@@ -26,7 +26,7 @@
   </div>
 
   <div fxFlex="40">
-    <mat-list>
+    <mat-list *ngIf="dish">
       <h1 mat-header>Comments</h1>
       <mat-list-item *ngFor="let comment of dish.comments">
         <p mat-line>{{comment.comment}}</p>
@@ -34,6 +34,10 @@
         <p mat-line> --{{ comment.author}} {{comment.date | date}} </p>
       </mat-list-item>
     </mat-list>
+  </div>
+
+  <div fxFlex [hidden]="dish">
+    <mat-spinner></mat-spinner> <h4>Loading... please wait!</h4>
   </div>
 
 </div>
